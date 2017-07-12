@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="Calculator.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+</head>
+
+<body>
+    <div class="structure">
+        <input id="inputField" type="text">
+        <div class="first-line">
+            <button id="btn7" class="no1" onclick="add('7')">7</button>
+            <button id="btn8" class="no2" onclick="add('8')">8</button>
+            <button id="btn9" class="no3" onclick="add('9')">9</button>
+            <button id="add" class="add" onclick="add('+')">+</button>
+        </div>
+        <div class="second-line">
+            <button id="btn4" class="no4" onclick="add('4')">4</button>
+            <button id="btn5" class="no5" onclick="add('5')">5</button>
+            <button id="btn6" class="no6" onclick="add('6')">6</button>
+            <button id="subtract" class="subtract" onclick="add('-')">-</button>
+        </div>
+        <div class="third-line">
+            <button id="btn1" class="no7" onclick="add('1')">1</button>
+            <button id="btn2" class="no8" onclick="add('2')">2</button>
+            <button id="btn3" class="no9" onclick="add('3')">3</button>
+            <button id="multiply" class="multiply" onclick="add('*')">x</button>
+        </div>
+        <div class="last-line">
+            <button id="btnC" class="clear-btn" onclick="delete1()">C</button>
+            <button id="back-btn" class="back-btn" onclick="back()"><-</button>
+            <button id="btn0" class="no0" onclick="add('0')">0</button>
+            <button id="divide" class="divide" onclick="add('/')">/</button>
+        </div>
+        <div class="compute"><button id="result" class="result" onclick="cal()">Compute</button></div>
+    </div>
+    <script>
+        function add(value) {
+            document.getElementById("inputField").value += value;
+        }
+        function cal() {
+            document.getElementById("inputField").value = eval(document.getElementById("inputField").value);
+        }
+        function back() {
+            document.getElementById("inputField").value = document.getElementById("inputField").value.slice(0, -1);
+        }
+        function delete1() {
+            document.getElementById("inputField").value = "";
+        }
+        document.getElementById("inputField")
+            .addEventListener("keyup", function (event) {
+                event.preventDefault();
+                if (event.keyCode == 13) {
+                    cal();
+                }
+            });
+            window.onload(function(){
+              $("$inputField").focus(); 
+               $("$inputField").select(); 
+            });
+
+    </script>
+</body>
+
+</html>
