@@ -2,8 +2,8 @@
 <head>
     <link rel="stylesheet" href="Calculator.css">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-
 <body>
     <img src="countonme.jpg">
     <div class="structure">
@@ -28,7 +28,7 @@
         </div>
         <div class="last-line">
             <button id="btnC" class="clear-btn" onclick="delete1()">C</button>
-            <button id="back-btn" class="back-btn" onclick="back()"> <- </button>
+            <button id="back-btn" class="back-btn" onclick="back()"> Back </button>
             <button id="btn0" class="no0" onclick="add('0')">0</button>
             <button id="divide" class="divide" onclick="add('/')">/</button>
         </div>
@@ -54,12 +54,22 @@
                     cal();
                 }
             });
-            window.onload(function(){
-              $("$inputField").focus(); 
-               $("$inputField").select(); 
-            });
+    
+        
+        var numExp = /^[0-9+-/*]*$/;
+        $(document).ready(function(){
+            $('#inputField').keyup(function(){
+            if($(this).val().match(numExp)){
+               return true;
+            } 
+                else{
+                    back();
+                }
+          });
+            
+        })
+          
 
     </script>
 </body>
-
 </html>
