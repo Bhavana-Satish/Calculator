@@ -1,0 +1,50 @@
+body{
+    text-align: center;
+    font-family: "Indie Flower",sans-serif;
+    
+}
+
+button{
+    width: 50px;
+    height: 50px;
+    border: none;
+    border: 1px solid #ffffff;
+    display: inline-block;
+    margin-top:5px;
+    color:whitesmoke;
+    font-size: 20px;
+}
+.last-line button{
+    background-color: #A03180;
+}
+.third-line button{
+    background-color: #AC3879;
+}
+.second-line button{
+    background-color: #BB3F73;
+}
+.first-line button{
+    background-color: #CD476C;
+
+}
+input
+{
+    width: 216px;
+    height: 50px;
+    border: 1px solid #999999;
+    font-size: 20px;
+       
+}
+*:focus{
+    outline: 0px !important;
+}
+#result{
+	width: 220px;
+}
+.compute button{
+ background-color:#CD476C;
+}
+button{
+}
+margin:5px;
+}
