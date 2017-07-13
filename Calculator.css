@@ -1,49 +1,54 @@
-body{
+body {
+    font-family: "open sans";
     text-align: center;
-    font-family: "Indie Flower",sans-serif;
-    
 }
 
-button{
-    width: 50px;
-    height: 50px;
+button {
+    width: 51px;
+    height: 51px;
     border: none;
     border: 1px solid #ffffff;
     display: inline-block;
-    margin-top:5px;
-    color:whitesmoke;
+    margin-top: 5px;
+    color: whitesmoke;
     font-size: 20px;
 }
-.last-line button{
+
+.last-line button {
     background-color: #A03180;
 }
-.third-line button{
+
+.third-line button {
     background-color: #AC3879;
 }
-.second-line button{
+
+.second-line button {
     background-color: #BB3F73;
 }
-.first-line button{
+
+.first-line button {
     background-color: #CD476C;
 }
-input
-{
+
+input {
     width: 216px;
     height: 50px;
     border: 1px solid #999999;
     font-size: 20px;
-       
 }
-*:focus{
+
+*:focus {
     outline: 0px !important;
 }
-#result{
-	width: 220px;
+
+#result {
+    width: 220px;
 }
-.compute button{
- background-color:#CD476C;
+
+.compute button {
+    background-color: #CD476C;
 }
-button{
-}
-margin:5px;
+
+marquee {
+    margin: 20px;
 }

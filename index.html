@@ -1,75 +1,73 @@
+<!doctype html>
 <html>
+
 <head>
+    <title>Calculator</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <link rel="stylesheet" href="Calculator.css">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
+
 <body>
-    <img src="countonme.jpg">
     <div class="structure">
-        <input id="inputField" type="text">
+        <marquee>If you wanna work with keyboard shortcuts please select the input box otherwise please use the buttons in the screen</marquee>
+        <input id="inputField" type="text" value="">
         <div class="first-line">
-            <button id="btn7" class="no1" onclick="add('7')">7</button>
-            <button id="btn8" class="no2" onclick="add('8')">8</button>
-            <button id="btn9" class="no3" onclick="add('9')">9</button>
-            <button id="add" class="add" onclick="add('+')">+</button>
+            <button id="btn7" class="btn" value="7">7</button>
+            <button id="btn8" class="btn" value="8">8</button>
+            <button id="btn9" class="btn" value="9">9</button>
+            <button id="add" class="btn" value="+">+</button>
         </div>
         <div class="second-line">
-            <button id="btn4" class="no4" onclick="add('4')">4</button>
-            <button id="btn5" class="no5" onclick="add('5')">5</button>
-            <button id="btn6" class="no6" onclick="add('6')">6</button>
-            <button id="subtract" class="subtract" onclick="add('-')">-</button>
+            <button id="btn4" class="btn" value="4">4</button>
+            <button id="btn5" class="btn" value="5">5</button>
+            <button id="btn6" class="btn" value="6">6</button>
+            <button id="subtract" class="btn" value="-">-</button>
         </div>
         <div class="third-line">
-            <button id="btn1" class="no7" onclick="add('1')">1</button>
-            <button id="btn2" class="no8" onclick="add('2')">2</button>
-            <button id="btn3" class="no9" onclick="add('3')">3</button>
-            <button id="multiply" class="multiply" onclick="add('*')">x</button>
+            <button id="btn1" class="btn" value="1">1</button>
+            <button id="btn2" class="btn" value="2">2</button>
+            <button id="btn3" class="btn" value="3">3</button>
+            <button id="multiply" class="btn" value="*">x</button>
         </div>
         <div class="last-line">
-            <button id="btnC" class="clear-btn" onclick="delete1()">C</button>
-            <button id="back-btn" class="back-btn" onclick="back()"> Back </button>
-            <button id="btn0" class="no0" onclick="add('0')">0</button>
-            <button id="divide" class="divide" onclick="add('/')">/</button>
+            <button id="btnC">C</button>
+            <button id="back-btn" class="del1">Del</button>
+            <button id="btn0" class="btn" value="0">0</button>
+            <button id="divide" class="btn" value="/">/</button>
         </div>
-        <div class="compute"><button id="result" class="result" onclick="cal()">Compute</button></div>
+        <div class="compute"><button id="result">Compute</button></div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-        function add(value) {
-            document.getElementById("inputField").value += value;
-        }
-        function cal() {
-            document.getElementById("inputField").value = eval(document.getElementById("inputField").value);
-        }
-        function back() {
-            document.getElementById("inputField").value = document.getElementById("inputField").value.slice(0, -1);
-        }
-        function delete1() {
-            document.getElementById("inputField").value = "";
-        }
-        document.getElementById("inputField")
-            .addEventListener("keyup", function (event) {
+        $(document).ready(function() {
+            $(".btn").click(function() {
+                $("#inputField").val($("#inputField").val() + this.value);
+            });
+            $("#result").click(function() {
+                $("#inputField").val(eval($("#inputField").val()));
+            });
+
+            $(".del1").click(function() {
+                $("#inputField").val($("#inputField").val().slice(0, -1));
+            });
+
+            $("#btnC").click(function() {
+                $("#inputField").val("");
+            });
+            $("#inputField").on("keyup", function(event) {
                 event.preventDefault();
                 if (event.keyCode == 13) {
-                    cal();
+                    $("#result").click();
+                }
+                if ($(this).val().match(/^[0-9+-/*]*$/)) {
+                    return true;
+                } else {
+                    $(".del1").click();
                 }
             });
-    
-        
-        var numExp = /^[0-9+-/*]*$/;
-        $(document).ready(function(){
-            $('#inputField').keyup(function(){
-            if($(this).val().match(numExp)){
-               return true;
-            } 
-                else{
-                    back();
-                }
-          });
-            
-        })
-          
-
+        });
     </script>
 </body>
+
 </html>
